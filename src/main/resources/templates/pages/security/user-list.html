@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout/main}">
+<head>
+    <meta charset="UTF-8">
+    <title>List Users</title>
+</head>
+<body>
+<section layout:fragment="content" class="container">
+
+    <div class="alert alert-danger alert-dismissible" th:if="${notAvailabel} != null" th:text="${notAvailabel}">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="alert alert-success alert-dismissible" th:if="${alertSuccess} != null" th:text="${alertSuccess}">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <h1>List users</h1>
+    <hr/>
+
+    <a href="/user/formaslkfjasdf" th:href="@{/user/security/form}" class="btn btn-success">Tambah data</a>
+    <hr/>
+    <table class="table table-striped table-bordered table-hover table-responsive">
+        <thead>
+        <tr>
+            <td>Nomor</td>
+            <td>username</td>
+            <td>Nama Lengkap</td>
+            <td>status</td>
+            <td>biodata</td>
+            <td>Created Date</td>
+            <td>Created By</td>
+            <td>Hapus \ Edit</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user, itrStat : ${listUsers}">
+            <td th:text="${itrStat.count}">1</td>
+            <td th:text="${user.name}">Muslim</td>
+            <td th:text="${user.namaLengkap}">Muslim</td>
+            <td>
+                <span th:if="${user.active} == true" class="fa fa-check"></span>
+                <span th:if="${user.active} == false" class="fa fa-times"></span></td>
+            <td th:text="${user.biodata}">admin</td>
+            <td th:text="${user.createdDate}">2018-02-15 16:10</td>
+            <td th:text="${user.createdBy}">admin</td>
+            <td>
+                <a href="#" th:href="@{'/user/security/hapus/'+${user.id}}" class="btn btn-danger">Hapus</a>
+                <a href="#" th:href="@{'/user/security/form/'+${user.id}}" class="btn btn-warning">Edit</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+</body>
+</html>

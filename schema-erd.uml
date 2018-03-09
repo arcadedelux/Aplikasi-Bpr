@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>174da6cc-5c25-4f49-b17a-e078acd54ac2</OriginalElement>
+  <nodes>
+    <node x="237.5" y="753.0">174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.master.pendidikan</node>
+    <node x="3.5" y="742.0">174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.wilayah.kode_pos</node>
+    <node x="721.5" y="0.0">174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.security.users</node>
+    <node x="6.5" y="360.0">174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.wilayah.kecamatan</node>
+    <node x="1477.5" y="0.0">174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.transaksi.mutasi_tabungan</node>
+    <node x="122.99999999999994" y="933.0">174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.nasabah.data_nasabah</node>
+    <node x="965.5" y="44.0">174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.security.roles</node>
+    <node x="6.5" y="169.0">174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.wilayah.kota_kabupaten</node>
+    <node x="468.5" y="742.0">174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.master.agama</node>
+    <node x="6.5" y="0.0">174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.wilayah.provinsi</node>
+    <node x="863.0" y="257.0">174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.security.user_roles</node>
+    <node x="403.99999999999994" y="988.0">174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.master.kriteria_tabungan</node>
+    <node x="0.0" y="551.0">174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.wilayah.kelurahan</node>
+    <node x="270.99999999999994" y="1278.0">174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.aplikasi.tabungan</node>
+    <node x="1218.5" y="0.0">174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.public.schema_version</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.wilayah.kelurahan" target="174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.wilayah.kecamatan">
+      <point x="0.0" y="-70.5" />
+      <point x="0.0" y="70.5" />
+    </edge>
+    <edge source="174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.wilayah.kota_kabupaten" target="174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.wilayah.provinsi">
+      <point x="0.0" y="-70.5" />
+      <point x="0.0" y="59.5" />
+    </edge>
+    <edge source="174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.nasabah.data_nasabah" target="174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.wilayah.kode_pos">
+      <point x="-32.62499999999994" y="-147.5" />
+      <point x="220.875" y="908.0" />
+      <point x="164.0" y="908.0" />
+      <point x="53.5" y="70.5" />
+    </edge>
+    <edge source="174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.wilayah.kode_pos" target="174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.wilayah.kelurahan">
+      <point x="0.0" y="-70.5" />
+      <point x="0.0" y="70.5" />
+    </edge>
+    <edge source="174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.aplikasi.tabungan" target="174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.master.kriteria_tabungan">
+      <point x="58.5" y="-103.5" />
+      <point x="446.49999999999994" y="1253.0" />
+      <point x="522.5" y="1253.0" />
+      <point x="0.0" y="92.5" />
+    </edge>
+    <edge source="174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.nasabah.data_nasabah" target="174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.master.pendidikan">
+      <point x="32.62500000000006" y="-147.5" />
+      <point x="286.125" y="908.0" />
+      <point x="343.0" y="908.0" />
+      <point x="0.0" y="59.5" />
+    </edge>
+    <edge source="174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.security.user_roles" target="174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.security.users">
+      <point x="-44.25" y="-37.0" />
+      <point x="907.25" y="232.0" />
+      <point x="833.5" y="232.0" />
+      <point x="0.0" y="103.5" />
+    </edge>
+    <edge source="174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.security.user_roles" target="174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.security.roles">
+      <point x="44.25" y="-37.0" />
+      <point x="995.75" y="232.0" />
+      <point x="1069.5" y="232.0" />
+      <point x="0.0" y="59.5" />
+    </edge>
+    <edge source="174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.nasabah.data_nasabah" target="174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.master.agama">
+      <point x="97.87500000000006" y="-147.5" />
+      <point x="351.375" y="908.0" />
+      <point x="572.5" y="908.0" />
+      <point x="0.0" y="70.5" />
+    </edge>
+    <edge source="174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.wilayah.kecamatan" target="174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.wilayah.kota_kabupaten">
+      <point x="0.0" y="-70.5" />
+      <point x="0.0" y="70.5" />
+    </edge>
+    <edge source="174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.aplikasi.tabungan" target="174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.nasabah.data_nasabah">
+      <point x="-58.5" y="-103.5" />
+      <point x="329.49999999999994" y="1253.0" />
+      <point x="253.49999999999994" y="1253.0" />
+      <point x="0.0" y="147.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.39867109634551495" x="843.5" y="742.5" />
+  <SelectedNodes>
+    <node>174da6cc-5c25-4f49-b17a-e078acd54ac2.TABLE:bpr.aplikasi.tabungan</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+  </Categories>
+</Diagram>
+

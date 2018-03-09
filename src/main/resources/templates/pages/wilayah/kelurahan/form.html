@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout/main}">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Agama</title>
+</head>
+<body>
+<section layout:fragment="content" class="container">
+    <h1>Form Kota Kabupaten</h1>
+
+    <form th:action="@{/kelurahan/submit}" th:object="${kodepos}" th:method="post" action="/kecamatan/submit"
+          method="post">
+        <input type="hidden" name="kodeKelurahan" th:field="*{id}"/>
+        <input type="hidden" name="kodeKelurahan" th:field="*{kelurahan.id}"/>
+        <div class="form-group">
+            <label for="kecamatanId">Pilih Kecamatan</label>
+            <select name="kotaId" id="kecamatanId" th:field="*{kelurahan.kecamatan.id}" class="form-control">
+                <option value="" th:each="kecamatan : ${listKecamatan}" th:value="${kecamatan.id}"
+                        th:label="${kecamatan.nama}">Bandung
+                </option>
+            </select>
+            <div th:if="${#fields.hasErrors('kelurahan.kecamatan')}" th:errors="*{kelurahan.kecamatan}"
+                 class="alert alert-danger">Age
+                Error
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="namaKelurahan">Nama Kelurahan</label>
+            <input type="text" id="namaKelurahan" class="form-control" name="namaKelurahan"
+                   th:field="*{kelurahan.nama}"/>
+            <div th:if="${#fields.hasErrors('kelurahan.nama')}" th:errors="*{kelurahan.nama}"
+                 class="alert alert-danger">Age Error
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="kodePos">Kode Pos</label>
+            <input type="number" id="kodePos" class="form-control" name="kodePos" th:field="*{kodePos}"/>
+            <div th:if="${#fields.hasErrors('kodePos')}" th:errors="*{kodePos}"
+                 class="alert alert-danger">Age Error
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Kirim</button>
+            <button type="reset" class="btn btn-warning">Reset</button>
+        </div>
+    </form>
+</section>
+</body>
+</html>

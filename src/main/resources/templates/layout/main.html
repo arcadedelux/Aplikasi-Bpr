@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>Aplikasi EBPR</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../static/bootstrap/css/bootstrap.min.css"
+          th:href="@{/static/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+
+    <!-- Custom styles for this template -->
+    <link href="../../static/layout.css"
+          th:href="@{/static/layout.css}" rel="stylesheet"/>
+    <link href="../../static/font-awesome/css/font-awesome.min.css"
+          th:href="@{/static/font-awesome/css/font-awesome.min.css}" rel="stylesheet"/>
+    <script src="../../static/html5shiv.min.js"
+            th:src="@{/static/html5shiv.min.js}"></script>
+    <script src="../../static/respond.min.js"
+            th:href="@{/static/respond.min.js}"></script>
+
+</head>
+
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" th:href="@{/}">Elektronik Bank Pengkreditan Rakyat</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" th:href="@{/user/security/list}">User Management</a></li>
+                <li><a href="#" th:href="@{/user/security/list}">My Profile</a></li>
+                <li><a href="#" th:href="@{/user/security/list}">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li>
+                    <a href="#">Master</a>
+                    <ul>
+                        <li><a href="#" th:href="@{/agama/list}">Data Agama</a></li>
+                        <li><a href="#" th:href="@{/pendidikan/list}">Data Pendidikan</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="disabled">Wilayah</a>
+                    <ul>
+                        <li>
+                            <a href="#" th:href="@{/provinsi/list}">Data Provinsi</a>
+                        </li>
+                        <li>
+                            <a href="#" th:href="@{/kota/list}">Data Kota / Kabupaten</a>
+                        </li>
+                        <li>
+                            <a href="#" th:href="@{/kecamatan/list}">Data Kecamatan</a>
+                        </li>
+                        <li>
+                            <a href="#" th:href="@{/kelurahan/list}">Data Kelurahan</a>
+                        </li>
+                        <li>
+                            <a href="#" th:href="@{/kodepos/list}">Data Kode Pos</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Produk</a>
+                    <ul>
+                        <li><a href="#">Produk Tabungan</a></li>
+                        <li><a href="#">Produk Deposito</a></li>
+                        <li><a href="#">Produk Kredit</a></li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="disabled">Master Nasabah</a>
+                    <ul>
+                        <li>
+                            <a href="#" th:href="@{/kota/list}">Nasabah Perorangan</a>
+                        </li>
+                        <li>
+                            <a href="#" th:href="@{/provinsi/list}">Nasabah Badan Usaha</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav nav-sidebar">
+                <li>
+                    <a href="#" class="disabled">Aplikasi Tabungan</a>
+                    <ul>
+                        <li>
+                            <a href="#">Pembukaan Tabungan</a>
+                        </li>
+                        <li>
+                            <a href="#">Setoran Tabungan</a>
+                        </li>
+                        <li>
+                            <a href="#">Penarikan Tabungan</a>
+                        </li>
+                        <li>
+                            <a href="#">Penutupan Tabungan</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="disabled">Aplikasi Deposito</a>
+                    <ul>
+                        <li>
+                            <a href="#">Pembukaan Deposito</a>
+                        </li>
+                        <li>
+                            <a href="#">Pembayaran Bunga Deposito</a>
+                        </li>
+                        <li>
+                            <a href="#">Penutupan Deposito</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="disabled">Aplikasi Kredit</a>
+                    <ul>
+                        <li>
+                            <a href="#">Pembukaan Kredit</a>
+                        </li>
+                        <li>
+                            <a href="#">Pembayaran Kredit</a>
+                        </li>
+                        <li>
+                            <a href="#">Pelunasan Kredit</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav nav-sidebar">
+                <li>
+                    <a href="#" class="disabled">Laporan</a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <section layout:fragment="content"></section>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="../../static/jquery-1.12.4.min.js" th:src="@{/static/jquery-1.12.4.min.js}"></script>
+<script src="../../static/bootstrap/js/bootstrap.min.js" th:src="@{/static/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

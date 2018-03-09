@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout/main}">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Agama</title>
+</head>
+<body>
+<section layout:fragment="content" class="container">
+    <h1>Form Kota Kabupaten</h1>
+
+    <form th:action="@{/user/security/submit}" th:object="${pengguna}" th:method="post" action="/user/security/submit"
+          method="post">
+        <input type="hidden" readonly name="kodePengguna" id="kodePengguna" th:field="*{id}"/>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" class="form-control" name="username" th:field="*{name}"/>
+            <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="alert alert-danger">Age Error</div>
+        </div>
+        <div class="form-group">
+            <label for="namaLengkap">Nama Lengkap</label>
+            <input type="text" id="namaLengkap" class="form-control" name="namaLengkap" th:field="*{namaLengkap}"/>
+            <div th:if="${#fields.hasErrors('namaLengkap')}" th:errors="*{namaLengkap}" class="alert alert-danger">Age
+                Error
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">Secret Login</label>
+            <input type="password" id="password" class="form-control" name="password" th:field="*{password}"/>
+            <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="alert alert-danger">Age Error
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="isActive">Status</label>
+            <input type="checkbox" id="isActive" class="form-control" name="isActive" th:field="*{active}"/>
+            <div th:if="${#fields.hasErrors('active')}" th:errors="*{active}" class="alert alert-danger">Age Error</div>
+        </div>
+        <div class="form-group">
+            <label for="biodata">Biodata Pengguna</label>
+            <textarea th:field="*{biodata}" id="biodata" class="form-control" rows="10" cols="20"></textarea>
+            <div th:if="${#fields.hasErrors('biodata')}" th:errors="*{biodata}" class="alert alert-danger">Age Error
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="akses">Daftar Akess</label>
+            <select name="akses" id="akses" multiple class="form-control" th:field="*{listRole}">
+                <option th:each="role, itrStat : ${roles}" th:value="${role.id}" th:valuetype="String"
+                        th:text="${role.nama}"></option>
+            </select>
+            <div th:if="${#fields.hasErrors('listRole')}"
+                 th:errors="*{listRole}" class="alert alert-danger">Age Error
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Kirim</button>
+            <button type="reset" class="btn btn-warning">Reset</button>
+        </div>
+
+    </form>
+</section>
+</body>
+</html>

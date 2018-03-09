@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout/main}">
+<head>
+    <meta charset="UTF-8">
+    <title>Daftar Kota Kabupaten</title>
+</head>
+<body>
+<section layout:fragment="content" class="container">
+
+    <div class="alert alert-danger alert-dismissible" th:if="${notAvailabel} != null" th:text="${notAvailabel}">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="alert alert-success alert-dismissible" th:if="${alertSuccess} != null" th:text="${alertSuccess}">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <h1>Tabungan a/n <span th:value="${tabungan.nasabah.namaLengkap}">Arief Setya Budi</span></h1>
+    <hr/>
+
+    <a href="#" th:href="@{'/aplikasi/tabungan/setor/'+${tabungan.id}}" class="btn btn-primary">Setoran Tabungan</a>
+    <a href="#" th:href="@{'/aplikasi/tabungan/tarik/'+${tabungan.id}}" class="btn btn-warning">Penarikan Tabungan</a>
+    <hr/>
+    <div class="form-group">
+        <label for="nomorRekening">Nomor Rekening</label>
+        <input type="text" id="nomorRekening" readonly th:value="${tabungan.nomorRekening}" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="namaNasabah">Nama Nasabah</label>
+        <input type="text" id="namaNasabah" readonly th:value="${nasabah.namaLengkap}" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="saldo">Saldo tabungan</label>
+        <input type="text" id="saldo" readonly th:value="${tabungan.saldo}" class="form-control">
+    </div>
+    <hr/>
+    <table class="table table-striped table-bordered table-hover table-responsive">
+        <thead>
+        <tr>
+            <td>Nomor</td>
+            <td>Tanggal Transaksi</td>
+            <td>Jenis Transaksi</td>
+            <td>Debet</td>
+            <td>Kredit</td>
+            <td>Saldo</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="mutasi, itrStat : ${tabungan.listMutasi}">
+            <td th:text="${itrStat.count}">1</td>
+            <td th:text="${mutasi.tanggal}">Bandung</td>
+            <td th:text="${mutasi.keterangan}">Jawa Barat</td>
+            <td th:text="${mutasi.debet}">Jawa Barat</td>
+            <td th:text="${mutasi.credit}">Jawa Barat</td>
+            <td th:text="${mutasi.saldo}">Jawa Barat</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+</body>
+</html>

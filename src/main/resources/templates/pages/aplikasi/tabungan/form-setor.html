@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout/main}">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Agama</title>
+</head>
+<body>
+<section layout:fragment="content" class="container">
+    <h1>Form Setoran Tabungan</h1>
+
+    <form th:action="@{/aplikasi/tabungan/setor/submit}" th:object="${mutasi}" th:method="post"
+          action="/aplikasi/tabungan/submit"
+          method="post">
+        <input type="hidden" th:field="*{tabungan.id}" name="tabunganId">
+        <input type="hidden" th:field="*{tabungan.saldo}" name="saldoTabungan">
+        <div class="form-group">
+            <label for="nomorRekening">Nomor Rekening</label>
+            <input type="text" id="nomorRekening" class="form-control" name="nomorRekening"
+                   th:field="*{tabungan.nomorRekening}" readonly/>
+        </div>
+        <div class="form-group">
+            <label for="namaNasabah">Nama Nasabah</label>
+            <input type="text" id="namaNasabah" class="form-control" name="namaNasabah"
+                   th:field="*{tabungan.nasabah.namaLengkap}" readonly/>
+        </div>
+        <div class="form-group">
+            <label for="setoran">Setoran Tabungan</label>
+            <input type="number" id="setoran" class="form-control" name="setoran" th:field="*{credit}"/>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Kirim</button>
+            <button type="reset" class="btn btn-warning">Reset</button>
+        </div>
+    </form>
+</section>
+</body>
+</html>

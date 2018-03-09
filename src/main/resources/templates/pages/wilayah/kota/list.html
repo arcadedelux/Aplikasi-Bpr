@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout/main}">
+<head>
+    <meta charset="UTF-8">
+    <title>Daftar Kota Kabupaten</title>
+</head>
+<body>
+<section layout:fragment="content" class="container">
+
+    <div class="alert alert-danger alert-dismissible" th:if="${notAvailabel} != null" th:text="${notAvailabel}">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="alert alert-success alert-dismissible" th:if="${alertSuccess} != null" th:text="${alertSuccess}">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <h1>Daftar Kota / Kabupaten</h1>
+    <hr/>
+
+    <a href="/agama/formaslkfjasdf" th:href="@{/kota/form}" class="btn btn-success">Tambah data</a>
+    <hr/>
+    <table class="table table-striped table-bordered table-hover table-responsive">
+        <thead>
+        <tr>
+            <td>Kode</td>
+            <td>Nama Kota/Kabupaten</td>
+            <td>Nama Provinsi</td>
+            <td>Created Date</td>
+            <td>Created By</td>
+            <td>Hapus \ Edit</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="kota, itrStat : ${listKota}">
+            <td th:text="${itrStat.count}">1</td>
+            <td th:text="${kota.nama}">Bandung</td>
+            <td th:text="${kota.provinsi.nama}">Jawa Barat</td>
+            <td th:text="${kota.createdDate}">2018-02-15 16:10</td>
+            <td th:text="${kota.createdBy}">admin</td>
+            <td>
+                <a href="#" th:href="@{'/kota/hapus/'+${kota.id}}" class="btn btn-danger">Hapus</a>
+                <a href="#" th:href="@{'/kota/form/'+${kota.id}}" class="btn btn-warning">Edit</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+</body>
+</html>

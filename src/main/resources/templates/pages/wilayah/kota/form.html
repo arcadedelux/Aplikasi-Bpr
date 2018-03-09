@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout/main}">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Agama</title>
+</head>
+<body>
+<section layout:fragment="content" class="container">
+    <h1>Form Kota Kabupaten</h1>
+
+    <form th:action="@{/kota/submit}" th:object="${kotaKabupaten}" th:method="post" action="/kota/submit" method="post">
+        <div class="form-group">
+            <label for="kodeKota">Kode Kota</label>
+            <input type="text" id="kodeKota" class="form-control" name="kodeKota" th:field="*{id}" readonly/>
+        </div>
+        <div class="form-group">
+            <label for="provinisiId">Pilih Provinsi</label>
+            <select name="provinsiId" id="provinisiId" th:field="*{provinsi.id}" class="form-control">
+                <option value="" th:each="prop : ${listProvinsi}" th:value="${prop.id}"
+                        th:label="${prop.nama}">Bandung
+                </option>
+            </select>
+            <div th:if="${#fields.hasErrors('provinsi')}" th:errors="*{provinsi}" class="alert alert-danger">Age
+                Error
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="namaKota">Nama Kota</label>
+            <input type="text" id="namaKota" class="form-control" name="namaKota" th:field="*{nama}"/>
+            <div th:if="${#fields.hasErrors('nama')}" th:errors="*{nama}" class="alert alert-danger">Age Error</div>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Kirim</button>
+            <button type="reset" class="btn btn-warning">Reset</button>
+        </div>
+
+    </form>
+</section>
+</body>
+</html>

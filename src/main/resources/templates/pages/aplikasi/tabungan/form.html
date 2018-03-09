@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout/main}">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Agama</title>
+</head>
+<body>
+<section layout:fragment="content" class="container">
+    <h1>Form Kota Kabupaten</h1>
+
+    <form th:action="@{/aplikasi/tabungan/submit}" th:object="${tabungan}" th:method="post"
+          action="/aplikasi/tabungan/submit"
+          method="post">
+        <div class="form-group">
+            <label for="nomorRekening">Nomor Rekening</label>
+            <input type="text" id="nomorRekening" class="form-control" name="nomorRekening"
+                   th:field="*{nomorRekening}"/>
+            <div th:if="${#fields.hasErrors('nomorRekening')}" th:errors="*{nomorRekening}" class="alert alert-danger">Age
+                Error
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="kotaId">Pilih Nasabah</label>
+            <select name="kotaId" id="kotaId" th:field="*{nasabah.id}" class="form-control">
+                <option value="" th:each="nasabah : ${listNasabah}" th:value="${nasabah.id}"
+                        th:label="${nasabah.namaLengkap}">Bandung
+                </option>
+            </select>
+            <div th:if="${#fields.hasErrors('nasabah')}" th:errors="*{nasabah}" class="alert alert-danger">Age
+                Error
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="jenisId">Pilih Jenis Tabungan</label>
+            <select name="jenisId" id="jenisId" th:field="*{kriteriaProduk.id}" class="form-control">
+                <option value="" th:each="jenis : ${listProduct}" th:value="${jenis.id}"
+                        th:label="${jenis.nama}">Bandung
+                </option>
+            </select>
+            <div th:if="${#fields.hasErrors('kriteriaProduk')}" th:errors="*{kriteriaProduk}"
+                 class="alert alert-danger">Age
+                Error
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="setoranAwal">Setoran Awal</label>
+            <input type="number" id="SetoranAwal" class="form-control" name="setoranAwal"/>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Kirim</button>
+            <button type="reset" class="btn btn-warning">Reset</button>
+        </div>
+    </form>
+</section>
+</body>
+</html>

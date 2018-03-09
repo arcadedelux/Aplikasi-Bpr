@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout/main}">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Agama</title>
+</head>
+<body>
+<section layout:fragment="content" class="container">
+    <h1>Form Agama</h1>
+
+    <form th:action="@{/agama/submit}" th:object="${agama}" th:method="post" action="/agama/submit" method="post">
+        <div class="form-group">
+            <label for="kodeAgama">Kode Agama</label>
+            <input type="text" id="kodeAgama" class="form-control" name="kodeAgama" th:field="*{id}" readonly/>
+        </div>
+        <div class="form-group">
+            <label for="namaAgama">Nama Agama</label>
+            <input type="text" id="namaAgama" class="form-control" name="namaAgama" th:field="*{nama}"/>
+            <div th:if="${#fields.hasErrors('nama')}" th:errors="*{nama}" class="alert alert-danger">Age Error</div>
+        </div>
+        <div class="form-group">
+            <label for="description">Deskripsi</label>
+            <textarea name="description" th:field="*{deskripsi}" class="form-control" id="description" cols="30"
+                      rows="10"></textarea>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Kirim</button>
+            <button type="reset" class="btn btn-warning">Reset</button>
+        </div>
+
+    </form>
+</section>
+</body>
+</html>
